@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import App from './app';
 import { shallow } from 'enzyme';
+import RandomDog from '../randomDog/randomDog';
 
 
 describe('App component', () => {
@@ -12,6 +13,6 @@ describe('App component', () => {
 
   it('renders RandomDog component', () => {
     const wrapper = shallow(<App />);
-    expect(wrapper.contains(<RandomDog />).toBe(true));
+    expect(wrapper.contains(<RandomDog />)).toBe(true);
   })
 });

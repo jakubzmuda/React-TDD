@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import './App.css';
+import './app.css';
+import RandomDog from '../randomDog/randomDog';
 
 class App extends Component {
   render() {
     return (
-      <div>
+      <div className="app-container">
+        <RandomDog/>
       </div>
     );
   }
