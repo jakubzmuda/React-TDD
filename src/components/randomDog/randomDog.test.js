@@ -16,4 +16,11 @@ describe('RandomDog component', () => {
     expect(wrapper.find('img[src="http://somedogurl.dog"]').exists()).toBe(true);
   });
 
+  it('should execute fetchDog', () => {
+    const fetchDog = jest.fn();
+    const wrapper = shallow(<RandomDog fetchDog={fetchDog}/>);
+    wrapper.find('button').simulate('click');
+    expect(fetchDog.mock.calls.length).toBe(1);
+  });
+
 });

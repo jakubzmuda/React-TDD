@@ -11,7 +11,7 @@ describe('fetchDog action', () => {
     server = sinon.fakeServer.create();
     server.autoRespond = true;
 
-    const mockStore = configureMockStore([]);
+    const mockStore = configureMockStore();
     store = mockStore({});
   });
 

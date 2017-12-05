@@ -1,15 +1,16 @@
-jest.mock('axios');
 import axios from 'axios';
 import configureMockStore from 'redux-mock-store';
 import { FETCH_DOG_REQUEST, FETCH_DOG_SUCCESS } from '../../constants/actionTypes';
 import fetchDog from './fetchDog';
+
+jest.mock('axios');
 
 describe('fetchDog action', () => {
 
   let store;
 
   beforeEach(() => {
-    const mockStore = configureMockStore([]);
+    const mockStore = configureMockStore();
     store = mockStore({});
   });
 

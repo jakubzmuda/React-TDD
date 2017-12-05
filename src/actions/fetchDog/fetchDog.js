@@ -1,22 +1,22 @@
 import axios from 'axios';
 import { FETCH_DOG_REQUEST, FETCH_DOG_SUCCESS, FETCH_DOG_FAILURE } from '../../constants/actionTypes';
 
-function fetchDogRequest() {
+export function fetchDogRequest() {
   return {
     type: FETCH_DOG_REQUEST,
   };
 }
 
-function fetchDogSuccess(body) {
+export function fetchDogSuccess(body) {
   return {
     type: FETCH_DOG_SUCCESS,
     payload: {
-      dogUrl: body.message,
+      url: body.message,
     },
   };
 }
 
-function fetchDogFailure(ex) {
+export function fetchDogFailure(ex) {
   console.log(ex);
   return {
     type: FETCH_DOG_FAILURE,

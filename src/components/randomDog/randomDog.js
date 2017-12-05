@@ -6,26 +6,27 @@ class RandomDog extends Component {
 
   static propTypes = {
     dogUrl: PropTypes.string,
+    fetchDog: PropTypes.func,
   };
 
   static defaultProps = {
     dogUrl: '',
+    fetchDog: f => f,
   };
 
   render() {
     return (
       <div className="random-dog-container">
-        <button className="dog-button">GET ME A DOG</button>
+        <button className="dog-button" onClick={() => this.props.fetchDog()}>GET ME A DOG</button>
         {this.renderDogSection()}
       </div>
     );
   }
 
-
   renderDogSection() {
     if (this.props.dogUrl) {
       return (
-        <img src={this.props.dogUrl} />
+        <img src={this.props.dogUrl} alt="doggo"/>
       );
     }
     return (
