@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_DOG_REQUEST, FETCH_DOG_SUCCESS, FETCH_DOG_FAILURE } from '../constants/actionTypes';
+import { FETCH_DOG_REQUEST, FETCH_DOG_SUCCESS, FETCH_DOG_FAILURE } from '../../constants/actionTypes';
 
 function fetchDogRequest() {
   return {
@@ -17,6 +17,7 @@ function fetchDogSuccess(body) {
 }
 
 function fetchDogFailure(ex) {
+  console.log(ex);
   return {
     type: FETCH_DOG_FAILURE,
     ex,

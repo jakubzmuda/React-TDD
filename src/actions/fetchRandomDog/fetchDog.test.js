@@ -1,6 +1,6 @@
 import sinon from 'sinon';
 import configureMockStore from 'redux-mock-store';
-import { FETCH_DOG_REQUEST, FETCH_DOG_SUCCESS } from '../constants/actionTypes';
+import { FETCH_DOG_REQUEST, FETCH_DOG_SUCCESS } from '../../constants/actionTypes';
 import fetchDog from './fetchDog';
 
 describe('fetchDog action', () => {
@@ -20,15 +20,16 @@ describe('fetchDog action', () => {
   });
 
   it('fetches a dog', async () => {
+    // given
     server.respondWith('GET', `https://dog.ceo/api/breeds/image/random`,
       [
         200,
         { 'Content-Type': 'application/json' },
-        '{"status":"success","message":"https:\\/\\/dog.ceo\\/api\\/img\\/collie\\/n02106030_8301.jpg"}'
+        '{"status":"success","message":"https://dog.ceo/api/img/someDog.jpg"}'
       ]);
-
+    // when
     await fetchDog()(store.dispatch);
-
+    // then
     expect(server.requests.length).toBe(1);
     expect(server.requests[0].url).toBe('https://dog.ceo/api/breeds/image/random');
     expect(store.getActions().map(p => p.type)).toEqual(
