@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import fetchDog from '../../actions/fetchDog/fetchDog';
 import RandomDog from '../randomDog/randomDog';
-import './app.css';
+import './dogApp.css';
 
 export class App extends Component {
 
