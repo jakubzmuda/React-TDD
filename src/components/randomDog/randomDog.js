@@ -26,7 +26,7 @@ class RandomDog extends Component {
   renderDogSection() {
     if (this.props.dogUrl) {
       return (
-        <img src={this.props.dogUrl} alt="doggo"/>
+        <img className="dog-image" src={this.props.dogUrl} alt="doggo"/>
       );
     }
     return (
