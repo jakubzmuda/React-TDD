@@ -6,7 +6,7 @@ describe('RandomDog component', () => {
 
   it('should render a placeholder', () => {
     const wrapper = shallow(<RandomDog />);
-    expect(wrapper.find('div.dog-placeholder').exists()).toBe(true);
+    expect(wrapper.find('div.dog-placeholder').text()).toEqual('No dog loaded yet. Get some!');
     expect(wrapper.find('img.dog-image').exists()).toBe(false);
   });
 
@@ -19,7 +19,7 @@ describe('RandomDog component', () => {
   it('should execute fetchDog', () => {
     const fetchDog = jest.fn();
     const wrapper = shallow(<RandomDog fetchDog={fetchDog}/>);
-    wrapper.find('button').simulate('click');
+    wrapper.find('.dog-button').simulate('click');
     expect(fetchDog.mock.calls.length).toBe(1);
   });
 
