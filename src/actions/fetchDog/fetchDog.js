@@ -17,7 +17,6 @@ export function fetchDogSuccess(body) {
 }
 
 export function fetchDogFailure(ex) {
-  console.log(ex);
   return {
     type: FETCH_DOG_FAILURE,
     ex,

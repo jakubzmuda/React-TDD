@@ -3,8 +3,6 @@ import configureMockStore from 'redux-mock-store';
 import { FETCH_DOG_REQUEST, FETCH_DOG_SUCCESS } from '../../constants/actionTypes';
 import fetchDog from './fetchDog';
 
-jest.unmock('axios');
-
 describe('fetchDog action', () => {
   let server;
   let store;
@@ -27,7 +25,7 @@ describe('fetchDog action', () => {
       [
         200,
         { 'Content-Type': 'application/json' },
-        '{"status":"success","message":"https://dog.ceo/`api/img/someDog.jpg"}'
+        '{"status":"success","message":"https://dog.ceo/api/img/someDog.jpg"}'
       ]);
     // when
     await fetchDog()(store.dispatch);

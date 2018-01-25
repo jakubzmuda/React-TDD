@@ -1,5 +1,5 @@
 import React from 'react';
-import { App } from './app';
+import { App } from './dogApp';
 import { shallow } from 'enzyme';
 import RandomDog from '../randomDog/randomDog';
 
