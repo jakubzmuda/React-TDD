@@ -31,7 +31,6 @@ describe('fetchDog action', () => {
     await fetchDog()(store.dispatch);
     // then
     expect(server.requests.length).toBe(1);
-    expect(server.requests[0].url).toBe('https://dog.ceo/api/breeds/image/random');
     expect(store.getActions().map(p => p.type)).toEqual(
       expect.arrayContaining([
         FETCH_DOG_REQUEST,
