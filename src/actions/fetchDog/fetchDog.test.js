@@ -1,36 +1,32 @@
-import mockAxios from 'jest-mock-axios';
 import configureMockStore from 'redux-mock-store';
 import { FETCH_DOG_REQUEST, FETCH_DOG_SUCCESS } from '../../constants/actionTypes';
 import fetchDog from './fetchDog';
-
-jest.mock('axios');
+import axios from 'axios';
+import MockAdapter from 'axios-mock-adapter';
 
 describe('fetchDog action', () => {
 
   let store;
+  let httpMock;
+
+  const flushAllPromises = () => new Promise(resolve => setImmediate(resolve));
 
   beforeEach(() => {
+    httpMock = new MockAdapter(axios);
     const mockStore = configureMockStore();
     store = mockStore({});
   });
 
-  afterEach(() => {
-    mockAxios.reset();
-  });
-
-  it('fetches a dog', () => {
+  it('fetches a dog', async () => {
     // given
-    const dogApiResponse = {
+    httpMock.onGet('https://dog.ceo/api/breeds/image/random').reply(200, {
       status: 'success',
       message: 'https://dog.ceo/api/img/someDog.jpg',
-    };
+    });
     // when
     fetchDog()(store.dispatch);
-    mockAxios.mockResponse({
-      data: dogApiResponse
-    });
+    await flushAllPromises();
     // then
-    expect(mockAxios.get).toHaveBeenCalledWith('https://dog.ceo/api/breeds/image/random');
     expect(store.getActions().map(p => p.type)).toEqual(
       expect.arrayContaining([
         FETCH_DOG_REQUEST,
