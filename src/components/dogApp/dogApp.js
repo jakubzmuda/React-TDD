@@ -5,7 +5,7 @@ import fetchDog from '../../actions/fetchDog/fetchDog';
 import RandomDog from '../randomDog/randomDog';
 import './dogApp.css';
 
-export class App extends Component {
+export class DogApp extends Component {
 
   static propTypes = {
     dogUrl: PropTypes.string,
@@ -34,4 +34,4 @@ const mapDispatch = {
   fetchDog,
 };
 
-export default connect(mapProps, mapDispatch)(App);
+export default connect(mapProps, mapDispatch)(DogApp);
