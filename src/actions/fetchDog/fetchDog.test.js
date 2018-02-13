@@ -28,9 +28,9 @@ describe('fetchDog action', () => {
     await flushAllPromises();
     // then
     expect(store.getActions()).toEqual(
-      [{ type: FETCH_DOG_REQUEST }, {
-        payload: { url: 'https://dog.ceo/api/img/someDog.jpg' },
-        type: FETCH_DOG_SUCCESS
-      }]);
+      [
+        { type: FETCH_DOG_REQUEST },
+        { payload: { url: 'https://dog.ceo/api/img/someDog.jpg' }, type: FETCH_DOG_SUCCESS }
+      ]);
   })
 });
