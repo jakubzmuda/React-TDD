@@ -24,7 +24,7 @@ describe('App integration tests', () => {
     expect(wrapper.find('img.dog-image').exists()).toBe(false);
   });
 
-  it('should render a dog when requested', async () => {
+  it('should fetch and render a dog', async () => {
     httpMock.onGet('https://dog.ceo/api/breeds/image/random').reply(200, {
       status: 'success',
       message: 'https://dog.ceo/api/img/someDog.jpg'
