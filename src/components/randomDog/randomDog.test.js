@@ -20,7 +20,7 @@ describe('RandomDog component', () => {
     const fetchDog = jest.fn();
     const wrapper = shallow(<RandomDog fetchDog={fetchDog}/>);
     wrapper.find('.dog-button').simulate('click');
-    expect(fetchDog).toHaveBeenCalledTimes(1)
+    expect(fetchDog).toHaveBeenCalledTimes(1);
   });
 
 });
