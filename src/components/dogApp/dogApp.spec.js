@@ -20,8 +20,8 @@ describe('App integration tests', () => {
 
   it('should render a placeholder when no dog image is fetched', () => {
     let wrapper = mount(<Provider store={store}><App /></Provider>);
-    expect(wrapper.find('div.dog-placeholder').exists()).toBe(true);
-    expect(wrapper.find('img.dog-image').exists()).toBe(false);
+    expect(wrapper.find('.dog-placeholder').exists()).toBe(true);
+    expect(wrapper.find('.dog-image').exists()).toBe(false);
   });
 
   it('should fetch and render a dog', async () => {

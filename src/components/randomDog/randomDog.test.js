@@ -6,13 +6,13 @@ describe('RandomDog component', () => {
 
   it('should render a placeholder', () => {
     const wrapper = shallow(<RandomDog />);
-    expect(wrapper.find('div.dog-placeholder').text()).toEqual('No dog loaded yet. Get some!');
-    expect(wrapper.find('img.dog-image').exists()).toBe(false);
+    expect(wrapper.find('.dog-placeholder').exists()).toBe(true);
+    expect(wrapper.find('.dog-image').exists()).toBe(false);
   });
 
   it('should render actual dog image', () => {
     const wrapper = shallow(<RandomDog dogUrl="http://somedogurl.dog" />);
-    expect(wrapper.find('div.dog-placeholder').exists()).toBe(false);
+    expect(wrapper.find('.dog-placeholder').exists()).toBe(false);
     expect(wrapper.find('img[src="http://somedogurl.dog"]').exists()).toBe(true);
   });
 
